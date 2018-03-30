@@ -126,6 +126,16 @@ class Usuario
 //            $this->getData($data[0]);
         }
     }
+
+    public function update($login, $pass, $param){
+        $sql = new Sql();
+        $sql->query("UPDATE tb_usuarios SET login=:login, senha=:pass WHERE login = :param",array(
+            ":login"=> $login,
+            ":pass" => $pass,
+            ":param"=>$param
+        ));
+    }
 }
+
 
 ?>
