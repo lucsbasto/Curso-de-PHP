@@ -99,6 +99,13 @@ class Usuario
         }
     }
 
+    public function getData($data){ //retorna os dados já formatados
+        $this->setid($data['id']);
+        $this->setLogin($data['login']);
+        $this->setSenha($data['senha']);
+        $this->setDtcadastro(new DateTime($data['dtcadastro']));
+    }
+
 }
 
 ?>
