@@ -22,5 +22,11 @@ class Sql extends PDO{
         $stmt -> execute();
         return $stmt;
     }
+
+    public function select($rawQuery, $params = array()) //faz a query e retorna os dados num array de arrays
+    {
+        $stmt = $this->query($rawQuery, $params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>
