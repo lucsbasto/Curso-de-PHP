@@ -86,6 +86,19 @@ class Usuario
         ));
     }
 
+    public function login($login, $pass){ //retorna o usuario que tiver o login e a senha passadas por parametro
+        $sql = new Sql();
+        $result = $sql->select("SELECT * FROM tb_usuarios WHERE login = :login AND senha = :password", array(
+            ":login"=>$login,
+            ":password"=>$pass
+        ));
+        if($this->isSeted($result[0])){
+        }
+        else {
+            throw new Exception("Login e/ou senha inválidos.");
+        }
+    }
+
 }
 
 ?>
