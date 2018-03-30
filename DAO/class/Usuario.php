@@ -53,6 +53,25 @@ class Usuario
         $this->dtcadastro = $dtcadastro;
     }
 
+    public function isSeted($data){ // verifica se o array $data ta setado se tiver é pq retornou algo
+        if(count($data)>0){// count($result)>0
+            $this->getData($data);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public function loadById($id){//select por id
+        $sql = new Sql();
+        $result = $sql->select("SELECT * FROM tb_usuarios WHERE id = :id",array(":id"=> $id));
+        $this->isSeted($result[0]);
+    }
+
+
+
+
+
 }
 
 ?>
