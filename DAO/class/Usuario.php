@@ -74,6 +74,11 @@ class Usuario
         $this->isSeted($result[0]);
     }
 
+    public static function getList(){ //retorna uma lista ordenado por id
+        $sql = new Sql();
+        return $sql->select("SELECT * FROM tb_usuarios ORDER BY id");
+    }
+
 }
 
 ?>
