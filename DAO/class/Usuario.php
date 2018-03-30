@@ -68,9 +68,11 @@ class Usuario
         $this->isSeted($result[0]);
     }
 
-
-
-
+    public function loadByLogin($login){//select por login
+        $sql = new Sql();
+        $result = $sql->select("SELECT * FROM tb_usuarios WHERE login = :login",array(":login"=> $login));
+        $this->isSeted($result[0]);
+    }
 
 }
 
