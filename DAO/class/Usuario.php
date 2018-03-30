@@ -106,6 +106,26 @@ class Usuario
         $this->setDtcadastro(new DateTime($data['dtcadastro']));
     }
 
+    public function insert($table, $login, $pass){
+
+        $sql = new Sql();
+        $result = $this::search("$login");
+        if(isset($result)){
+            echo "Login já cadastrado !";
+        }
+        else{
+            $sql->query("INSERT INTO $table(login, senha) VALUES (:login, :senha)",array(
+                ":login"=> $login,
+                ":senha"=>$pass
+            ));
+            echo "Usuário cadastrado com sucesso !";
+// PEGA O ULTIMO USUARIO ADICIONADO
+//            $id = $sql -> select("SELECT LAST_INSERT_ID()");
+//            $id = $id[0]['LAST_INSERT_ID()'];
+//            $data = $sql->select("SELECT * FROM $table WHERE id = :id", array(":id"=>$id));
+//            $this->getData($data[0]);
+        }
+    }
 }
 
 ?>
