@@ -7,7 +7,7 @@ if(!is_dir($name)){
     echo "Diretorio $name criado com sucesso !";
 }
 else{
-    //rmdir($name); // apaga diretorio
+    //rmdir($name); //apaga diretorio
     echo "Diretorio $name já existe !";
 }
 
