@@ -143,6 +143,16 @@ class Usuario
         ));
         //echo "Usuário deletado com sucesso !";
     }
+
+    public function __toString()
+    {
+        return json_encode(array(
+            "id" => $this->getid(),
+            "login" => $this->getLogin(),
+            "senha" => $this->getSenha(),
+            "dtcadastro" => $this->getDtcadastro()->format("d-m-Y H:i:s")
+        ));
+    }
 }
 
 
