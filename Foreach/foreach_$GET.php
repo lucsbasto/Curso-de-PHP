@@ -11,7 +11,6 @@ if(isset($_GET)){
     foreach ($_GET as $key => $value) {
         echo "Nome : " . $key . "<br/>";
         echo "Nascimento: " . $value;
-
         echo "<hr>";
 
     }
