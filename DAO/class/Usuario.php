@@ -79,6 +79,13 @@ class Usuario
         return $sql->select("SELECT * FROM tb_usuarios ORDER BY id");
     }
 
+    public static function search($login){ //retorna os usuarios que tem o parametro em alguma parte do login
+        $sql = new Sql();
+        $result =  $sql->select("SELECT * FROM  tb_usuarios WHERE login LIKE :login ORDER BY id", array(
+            ":login"=>"%$login%"
+        ));
+    }
+
 }
 
 ?>
