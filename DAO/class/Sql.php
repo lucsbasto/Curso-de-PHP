@@ -15,5 +15,12 @@ class Sql extends PDO{
     private function setParam($stmt, $key, $value){ //junta a chave e o valor mandado pela função setParams
         $stmt -> bindParam($key, $value);
     }
+
+    public function query($rawQuery, $params = array()){ //faz a junção da query com os params pra evitar sqlinject
+        $stmt = $this -> conn -> prepare($rawQuery);
+        $this -> setParams($stmt, $params);
+        $stmt -> execute();
+        return $stmt;
+    }
 }
 ?>
