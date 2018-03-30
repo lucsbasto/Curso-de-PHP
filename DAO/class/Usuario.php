@@ -135,6 +135,14 @@ class Usuario
             ":param"=>$param
         ));
     }
+
+    public function delete($login){
+        $sql= new Sql();
+        $sql->query("DELETE FROM tb_usuarios WHERE login = :login", array(
+            ":login"=>$login
+        ));
+        //echo "Usuário deletado com sucesso !";
+    }
 }
 
 
